@@ -453,8 +453,11 @@ function contactForm() {
   if (svc && form.topic) { form.topic.value = svc; }
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    if (form.company?.value) return; // spam trap
+    status.className = "form-status"; status.textContent = "";
     const data = Object.fromEntries(new FormData(form));
+    for (const k of ["name", "email", "message"]) data[k] = (data[k] || "").trim();
+    // Spam trap: bots fill every field. Pretend it worked and send nothing.
+    if (data._honey) { form.reset(); status.className = "form-status ok"; status.textContent = "Message received. I'll get back to you soon."; return; }
     if (!data.name || !data.email || !data.message) { status.className = "form-status err"; status.textContent = "Please fill in your name, email and message."; return; }
     const btn = form.querySelector("button[type=submit]");
     const topics = { aod: "Asset on Demand", god: "Game on Demand" };
