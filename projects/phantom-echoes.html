@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phantom Echoes: Chapter I · Arnav Tripathi</title>
+  <meta name="description" content="Phantom Echoes: Chapter I, a first-person psychological horror game by NoteX Studios. Case study by Arnav Tripathi.">
+  <meta property="og:image" content="../assets/img/pe/shot2.webp">
+  <meta name="theme-color" content="#070708">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .pe-hero { min-height: 92svh; display: flex; align-items: flex-end; position: relative; overflow: hidden; padding: calc(var(--header-h) + 60px) 0 70px; }
+    .pe-hero::before { content: ""; position: absolute; inset: 0; background: url("../assets/img/pe/shot2.webp") center / cover; filter: brightness(0.55) saturate(0.9); transform: scale(1.05); animation: slowzoom 24s ease-in-out infinite alternate; }
+    .pe-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,7,8,0.2), rgba(7,7,8,0.4) 50%, var(--bg)); }
+    .pe-hero .wrap { position: relative; z-index: 1; }
+    @keyframes slowzoom { to { transform: scale(1.14) translateX(-2%); } }
+  </style>
+</head>
+<body data-page="project">
+<main id="main">
+
+  <section class="pe-hero">
+    <div class="wrap">
+      <a class="mono muted link-u" href="../portfolio.html">← All projects</a>
+      <div style="margin:22px 0 8px"><span class="badge"><span class="dot"></span>Out now on Steam</span></div>
+      <h1 style="font-size:clamp(3rem,9vw,8rem);margin:14px 0 18px"><span class="glitch flicker" data-text="Phantom Echoes">Phantom Echoes</span><br><span class="red">Chapter I</span></h1>
+      <p class="lead">After a plane journey to Delhi goes wrong, you arrive at a strange hotel surrounded by a dense forest. Something feels off.</p>
+      <div class="btn-row" style="margin-top:28px">
+        <a class="btn btn-primary" href="https://store.steampowered.com/app/4607190/Phantom_Echoes_Chapter_I/" target="_blank" rel="noopener">Get it on Steam <span class="arrow">↗</span></a>
+        <a class="btn" href="#trailer">Watch trailer</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:40px">
+    <div class="wrap">
+      <dl class="facts reveal">
+        <div><dt>Released</dt><dd>24 May 2026</dd></div>
+        <div><dt>Platform</dt><dd>PC · Steam</dd></div>
+        <div><dt>Genre</dt><dd>Psychological horror</dd></div>
+        <div><dt>Engine</dt><dd>Unity</dd></div>
+        <div><dt>Studio</dt><dd>NoteX Studios</dd></div>
+        <div><dt>Playtime</dt><dd>~6–8 hours</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="about-game">
+    <div class="wrap split-2">
+      <div>
+        <span class="label reveal">The game</span>
+        <h2 class="reveal" style="margin:18px 0 26px">Can you uncover the truth behind the echoes?</h2>
+      </div>
+      <div class="reveal">
+        <p class="lead">Phantom Echoes: Chapter I is a first-person psychological horror game built around exploration, puzzle-solving and survival. It's billed as India's first multiverse horror title.</p>
+        <p class="muted">You play as Ronny, trapped in a hotel where the environment seems distorted, sounds echo unnaturally and reality itself feels unstable. As you explore, you uncover fragments of a disturbing story while trying to work out what is real.</p>
+        <ul class="skill-list" style="margin-top:22px">
+          <li><span class="name">Descend to escape the entities</span><span class="what">Core loop</span></li>
+          <li><span class="name">Environmental puzzles</span><span class="what">Progression</span></li>
+          <li><span class="name">Limited resources: lantern, scanner</span><span class="what">Survival</span></li>
+          <li><span class="name">Sound and visual cues</span><span class="what">Atmosphere</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="trailer">
+    <div class="wrap">
+      <span class="label reveal">Official trailer</span>
+      <div class="trailer reveal" style="margin-top:28px;background-image:url('../assets/img/pe/trailer-thumb.webp')"
+        data-hls="https://video.akamai.steamstatic.com/store_trailers/4607190/1789646200/73b8ef7fbb45031bc1df77d1fba8439849fbb004/1779606033/hls_264_master.m3u8"
+        data-poster="../assets/img/pe/trailer-thumb.webp" data-fallback="https://store.steampowered.com/app/4607190/Phantom_Echoes_Chapter_I/">
+        <button class="play" type="button" aria-label="Play the Phantom Echoes trailer" data-cursor="Play"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="role">
+    <div class="wrap split-2">
+      <div>
+        <span class="label reveal">My role</span>
+        <h2 class="reveal" style="margin:18px 0 0">Art, animation &amp; Unity</h2>
+      </div>
+      <div class="reveal">
+        <p class="muted">As a co-founder of NoteX Studios, I worked across the art and the build: creating 3D assets and creatures, animating them, and putting the experience together in Unity. That covers lighting, interactions and the scares that rely on timing.</p>
+        <div class="tool-strip">
+          <span class="chip">Blender</span><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">Animation</span><span class="chip">Lighting</span><span class="chip">Level design</span><span class="chip">DaVinci Resolve</span><span class="chip">Steamworks</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="screens">
+    <div class="wrap">
+      <div class="section-head split">
+        <div><span class="label reveal">Screenshots</span><h2 class="reveal" style="margin-top:18px">Inside the hotel</h2></div>
+        <p class="reveal">Click to enlarge. Use the arrow keys to step through.</p>
+      </div>
+      <div class="shots-row">
+        <button class="shot reveal" type="button" data-full="../assets/img/pe/shot1.webp" data-title="Green hallway"><img src="../assets/img/pe/shot1.webp" alt="A green-lit hotel hallway" loading="lazy"><span class="cap"><strong>Green hallway</strong></span></button>
+        <button class="shot reveal" type="button" data-delay="1" data-full="../assets/img/pe/shot2.webp" data-title="The statue corridor"><img src="../assets/img/pe/shot2.webp" alt="A corridor lined with statues" loading="lazy"><span class="cap"><strong>Statue corridor</strong></span></button>
+        <button class="shot reveal" type="button" data-delay="2" data-full="../assets/img/pe/shot3.webp" data-title="Storage room"><img src="../assets/img/pe/shot3.webp" alt="A dim storage room" loading="lazy"><span class="cap"><strong>Storage room</strong></span></button>
+        <button class="shot reveal" type="button" data-full="../assets/img/pe/shot4.webp" data-title="Lantern"><img src="../assets/img/pe/shot4.webp" alt="A lit lantern on the floor" loading="lazy"><span class="cap"><strong>Lantern</strong></span></button>
+        <button class="shot reveal" type="button" data-delay="1" data-full="../assets/img/pe/shot5.webp" data-title="What's this paper?"><img src="../assets/img/pe/shot5.webp" alt="A note on a dark staircase" loading="lazy"><span class="cap"><strong>A note</strong></span></button>
+        <button class="shot reveal" type="button" data-delay="2" data-full="../assets/img/pe/bg.webp" data-title="Chapter I key art"><img src="../assets/img/pe/bg.webp" alt="Red eyes behind a bloody numeral one" loading="lazy"><span class="cap"><strong>Key art</strong></span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="specs">
+    <div class="wrap split-2">
+      <div><span class="label reveal">System requirements</span><h2 class="reveal" style="margin-top:18px">Minimum</h2></div>
+      <dl class="facts reveal" style="grid-template-columns:1fr 1fr">
+        <div><dt>OS</dt><dd>Windows 10 64-bit</dd></div>
+        <div><dt>Processor</dt><dd>Intel Core i5 8th gen / Ryzen 3 3200G</dd></div>
+        <div><dt>Memory</dt><dd>8 GB RAM</dd></div>
+        <div><dt>Graphics</dt><dd>GTX 1050 / RX 560 (2 GB)</dd></div>
+        <div><dt>DirectX</dt><dd>Version 12</dd></div>
+        <div><dt>Storage</dt><dd>5 GB</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <span class="label">Dare to check in?</span>
+      <h2>Play <em>Phantom Echoes</em>.</h2>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://store.steampowered.com/app/4607190/Phantom_Echoes_Chapter_I/" target="_blank" rel="noopener">Steam store page <span class="arrow">↗</span></a>
+        <a class="btn" href="the-last-peg.html">Next project: The Last Peg</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bio &amp; Contact · Arnav Tripathi</title>
+  <meta name="description" content="About Arnav Tripathi (SMooKER_999), 3D artist, animator and Unity developer from Delhi NCR, and how to get in touch.">
+  <meta name="theme-color" content="#070708">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="contact">
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="label">04 · Bio &amp; Contact</span>
+      <h1><span class="glitch" data-text="Say hello">Say hello</span></h1>
+      <p class="lead">Projects, collaborations, asset requests or just talking horror games: my inbox is open.</p>
+    </div>
+    <div class="bg-word" aria-hidden="true">Bio</div>
+  </section>
+
+  <section class="section" id="bio">
+    <div class="wrap intro-grid">
+      <figure class="portrait reveal" style="margin:0">
+        <img src="assets/img/gallery/chhalawa.webp" alt="The Chhalawa, a pale long-haired ghost, emerging from darkness" loading="lazy" style="object-position:50% 20%">
+        <figcaption class="tag mono">Chhalawa · creature render</figcaption>
+      </figure>
+      <div>
+        <span class="label reveal">Bio</span>
+        <h2 class="reveal" style="margin:18px 0 26px">Arnav Tripathi<br><span class="muted" style="font-size:.5em">aka SMooKER_999</span></h2>
+        <p class="lead reveal">3D artist, animator and Unity developer based in Delhi NCR, India, and co-founder of NoteX Studios.</p>
+        <p class="muted reveal">I started out as a gamer who wanted to know how horror games get under your skin. That curiosity turned into modelling and animating in Blender, then building gameplay in Unity with C#. Today I make games and game assets with the NoteX Studios team. Our first title, Phantom Echoes: Chapter I, is out on Steam, and The Last Peg is on the way.</p>
+        <p class="muted reveal">When I'm not working, I'm probably playing something that keeps me up at night.</p>
+        <dl class="case-meta reveal">
+          <div><dt>Location</dt><dd>Delhi NCR, India</dd></div>
+          <div><dt>Studio</dt><dd>NoteX Studios</dd></div>
+          <div><dt>Focus</dt><dd>3D art · Animation · Unity</dd></div>
+          <div><dt>Available for</dt><dd>Freelance · Collabs</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <span class="label reveal">Find me</span>
+        <h2 class="reveal" style="margin:18px 0 30px">Channels</h2>
+        <ul class="socials reveal" id="socials"></ul>
+        <p class="mono muted reveal" style="margin-top:22px">Based in Delhi NCR · IST (UTC+5:30)</p>
+      </div>
+
+      <form class="form reveal" data-contact novalidate>
+        <span class="label">Send a message</span>
+        <div class="field-row">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="field">
+          <label for="f-topic">Topic</label>
+          <select id="f-topic" name="topic">
+            <option value="General">General hello</option>
+            <option value="aod">Asset on Demand (3D assets)</option>
+            <option value="god">Game on Demand (full game)</option>
+            <option value="Collaboration">Collaboration</option>
+            <option value="Job offer">Job / freelance offer</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required placeholder="Tell me about your project…"></textarea></div>
+        <input class="hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-primary" type="submit" style="justify-self:start">Send message <span class="arrow">→</span></button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+<script src="assets/js/main.js" defer></script>
+<script>
+  // Social list built from the SITE links in main.js
+  addEventListener("DOMContentLoaded", () => {
+    const L = SITE.links, ul = document.getElementById("socials");
+    const rows = [
+      ["mail", "Email", SITE.email, "mailto:" + SITE.email],
+      ["github", "GitHub", "ArnavTripathi999", L.github],
+      ["linkedin", "LinkedIn", "Arnav Tripathi", L.linkedin],
+      ["youtube", "YouTube", "@NoteXStudios", L.youtube],
+      ["instagram", "Instagram", "@notex.studios.games", L.instagram],
+      ["discord", "Discord", L.discord + " · click to copy", null],
+      ["globe", "Studio", "notexstudios.in", L.studio],
+      ["steam", "Steam", "Phantom Echoes", L.steam],
+    ];
+    ul.innerHTML = rows.map(([ic, name, handle, href]) => {
+      const inner = `${ICON[ic]}<span>${name}</span><span class="handle">${handle}</span>`;
+      return href
+        ? `<li><a href="${href}" ${href.startsWith("http") ? 'target="_blank" rel="noopener"' : ""}>${inner}</a></li>`
+        : `<li><a href="#" data-copy="${L.discord}">${inner}</a></li>`;
+    }).join("");
+    ul.querySelector("[data-copy]")?.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const h = e.currentTarget.querySelector(".handle");
+      try { await navigator.clipboard.writeText(e.currentTarget.dataset.copy); h.textContent = "Copied: " + L.discord; }
+      catch { h.textContent = L.discord; }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery · Arnav Tripathi</title>
+  <meta name="description" content="3D art, creature renders, game screenshots and an interactive 3D model viewer by Arnav Tripathi.">
+  <meta name="theme-color" content="#070708">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+</head>
+<body data-page="gallery">
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="label">02 · Portfolio / Gallery</span>
+      <h1><span class="glitch" data-text="Gallery">Gallery</span></h1>
+      <p class="lead">Creatures, environments and moments from the games. Spin a model, watch the trailer, or click any image to see it full size.</p>
+    </div>
+    <div class="bg-word" aria-hidden="true">Art</div>
+  </section>
+
+  <!-- ============ 3D VIEWER ============ -->
+  <section class="section" id="viewer">
+    <div class="wrap">
+      <div class="section-head split">
+        <div><span class="label reveal">Interactive</span><h2 class="reveal" style="margin-top:18px">3D viewer</h2></div>
+        <p class="reveal">Drag to orbit, scroll or pinch to zoom, right-drag to pan. Works on phones too.</p>
+      </div>
+      <div class="viewer-wrap reveal">
+        <model-viewer id="mv" src="assets/models/lantern.glb" alt="A rusty old lantern, rendered in 3D"
+          camera-controls auto-rotate auto-rotate-delay="0" rotation-per-second="18deg"
+          shadow-intensity="1.2" shadow-softness="0.8" exposure="0.85" environment-image="neutral" tone-mapping="aces"
+          interaction-prompt="auto" touch-action="pan-y" loading="lazy" data-cursor="Drag">
+        </model-viewer>
+        <div class="viewer-side">
+          <span class="label">Now viewing</span>
+          <h3 id="mv-name">Old lantern</h3>
+          <p class="hint" id="mv-desc">Placeholder model (a free CC0 sample). My own models from Phantom Echoes will replace it soon.</p>
+          <div class="controls">
+            <button class="chip on" type="button" id="mv-rotate" aria-pressed="true">Auto-rotate</button>
+            <button class="chip" type="button" id="mv-dark" aria-pressed="false">Lights out</button>
+            <button class="chip" type="button" id="mv-reset">Reset view</button>
+          </div>
+          <span class="label" style="margin-top:8px">Models</span>
+          <div class="model-list" id="mv-list">
+            <button type="button" class="on" data-src="assets/models/lantern.glb" data-name="Old lantern" data-desc="Placeholder model (a free CC0 sample). My own models from Phantom Echoes will replace it soon.">Old lantern <span class="mono">Sample</span></button>
+          </div>
+          <p class="notice" style="margin-top:auto">To add a model: export it from Blender as <code>.glb</code> (File › Export › glTF 2.0), put it in <code>assets/models/</code> and add a button to the list above.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHOWREEL ============ -->
+  <section class="section" id="showreel">
+    <div class="wrap">
+      <div class="section-head split">
+        <div><span class="label reveal">Showreel</span><h2 class="reveal" style="margin-top:18px">Phantom Echoes trailer</h2></div>
+        <p class="reveal">The official trailer for Phantom Echoes: Chapter I. Headphones recommended.</p>
+      </div>
+      <div class="trailer reveal" style="background-image:url('assets/img/pe/trailer-thumb.webp')"
+        data-hls="https://video.akamai.steamstatic.com/store_trailers/4607190/1789646200/73b8ef7fbb45031bc1df77d1fba8439849fbb004/1779606033/hls_264_master.m3u8"
+        data-poster="assets/img/pe/trailer-thumb.webp" data-fallback="https://store.steampowered.com/app/4607190/Phantom_Echoes_Chapter_I/">
+        <button class="play" type="button" aria-label="Play the Phantom Echoes trailer" data-cursor="Play"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RENDERS ============ -->
+  <section class="section" id="renders">
+    <div class="wrap">
+      <div class="section-head split">
+        <div><span class="label reveal">Stills</span><h2 class="reveal" style="margin-top:18px">Renders &amp; screenshots</h2></div>
+        <div class="filters" role="group" aria-label="Filter images" style="margin:0" id="g-filters">
+          <button class="chip on" type="button" data-g="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-g="creature" aria-pressed="false">Creatures</button>
+          <button class="chip" type="button" data-g="game" aria-pressed="false">In-game</button>
+        </div>
+      </div>
+      <div class="masonry">
+        <button class="shot light reveal" type="button" data-g="creature" data-full="assets/img/gallery/phantom.webp" data-title="The Phantom"><img src="assets/img/gallery/phantom.webp" alt="Smoky phantom figure with glowing red eyes and a grin" loading="lazy"><span class="cap"><strong>The Phantom</strong><span class="mono">Creature</span></span></button>
+        <button class="shot reveal" type="button" data-g="game" data-full="assets/img/pe/shot1.webp" data-title="Green hallway"><img src="assets/img/pe/shot1.webp" alt="A green-lit hotel hallway in Phantom Echoes" loading="lazy"><span class="cap"><strong>Green hallway</strong><span class="mono">In-game</span></span></button>
+        <button class="shot reveal" type="button" data-g="creature" data-full="assets/img/gallery/chhalawa.webp" data-title="Chhalawa"><img src="assets/img/gallery/chhalawa.webp" alt="A pale long-haired ghost crawling out of darkness" loading="lazy"><span class="cap"><strong>Chhalawa</strong><span class="mono">Creature</span></span></button>
+        <button class="shot reveal" type="button" data-g="game" data-full="assets/img/pe/shot2.webp" data-title="The statue corridor"><img src="assets/img/pe/shot2.webp" alt="A long corridor lined with statues" loading="lazy"><span class="cap"><strong>The statue corridor</strong><span class="mono">In-game</span></span></button>
+        <button class="shot light reveal" type="button" data-g="creature" data-full="assets/img/gallery/wax-monster.webp" data-title="Wax Monster"><img src="assets/img/gallery/wax-monster.webp" alt="A melted, screaming wax creature" loading="lazy"><span class="cap"><strong>Wax Monster</strong><span class="mono">Creature</span></span></button>
+        <button class="shot reveal" type="button" data-g="game" data-full="assets/img/pe/shot4.webp" data-title="Lantern"><img src="assets/img/pe/shot4.webp" alt="A lit oil lantern on a wooden floor" loading="lazy"><span class="cap"><strong>Lantern</strong><span class="mono">In-game</span></span></button>
+        <button class="shot light reveal" type="button" data-g="creature" data-full="assets/img/gallery/blind-blood-drinker.webp" data-title="Blind Blood Drinker"><img src="assets/img/gallery/blind-blood-drinker.webp" alt="An eyeless creature with a gaping toothed mouth" loading="lazy"><span class="cap"><strong>Blind Blood Drinker</strong><span class="mono">Creature</span></span></button>
+        <button class="shot reveal" type="button" data-g="game" data-full="assets/img/pe/shot3.webp" data-title="Storage room"><img src="assets/img/pe/shot3.webp" alt="A dim storage room under a single ceiling light" loading="lazy"><span class="cap"><strong>Storage room</strong><span class="mono">In-game</span></span></button>
+        <button class="shot reveal" type="button" data-g="game" data-full="assets/img/pe/shot5.webp" data-title="What's this paper?"><img src="assets/img/pe/shot5.webp" alt="A note lying on a dark staircase landing" loading="lazy"><span class="cap"><strong>What's this paper?</strong><span class="mono">In-game</span></span></button>
+        <button class="shot reveal" type="button" data-g="game" data-full="assets/img/pe/bg.webp" data-title="Chapter I key art"><img src="assets/img/pe/bg.webp" alt="Red glowing eyes behind a bloody Roman numeral one" loading="lazy"><span class="cap"><strong>Chapter I key art</strong><span class="mono">Key art</span></span></button>
+        <button class="shot reveal" type="button" data-g="game" data-full="assets/img/gallery/panorama.webp" data-title="Studio key art"><img src="assets/img/gallery/panorama.webp" alt="A squad of armed figures with flashlights in a dark forest" loading="lazy"><span class="cap"><strong>Studio key art</strong><span class="mono">NoteX</span></span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <span class="label">Need models like these?</span>
+      <h2>Order your <em>own</em>.</h2>
+      <div class="btn-row"><a class="btn btn-primary" href="marketplace.html#aod">Asset on Demand <span class="arrow">→</span></a><a class="btn" href="contact.html">Ask a question</a></div>
+    </div>
+  </section>
+
+</main>
+<script src="assets/js/main.js" defer></script>
+<script>
+  // 3D viewer controls
+  addEventListener("DOMContentLoaded", () => {
+    const mv = document.getElementById("mv");
+    const rot = document.getElementById("mv-rotate"), dark = document.getElementById("mv-dark");
+    rot.addEventListener("click", () => { const on = !mv.hasAttribute("auto-rotate"); mv.toggleAttribute("auto-rotate", on); rot.classList.toggle("on", on); rot.setAttribute("aria-pressed", on); });
+    dark.addEventListener("click", () => { const on = !dark.classList.contains("on"); mv.exposure = on ? 0.18 : 0.85; mv.shadowIntensity = on ? 2 : 1.2; dark.classList.toggle("on", on); dark.setAttribute("aria-pressed", on); });
+    document.getElementById("mv-reset").addEventListener("click", () => { mv.cameraOrbit = "auto auto auto"; mv.fieldOfView = "auto"; mv.jumpCameraToGoal?.(); });
+    document.getElementById("mv-list").addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-src]"); if (!b) return;
+      document.querySelectorAll("#mv-list button").forEach((x) => x.classList.toggle("on", x === b));
+      mv.src = b.dataset.src;
+      document.getElementById("mv-name").textContent = b.dataset.name;
+      document.getElementById("mv-desc").textContent = b.dataset.desc || "";
+    });
+    // Image filters
+    const gf = document.getElementById("g-filters");
+    gf.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-g]"); if (!b) return;
+      gf.querySelectorAll(".chip").forEach((c) => { c.classList.toggle("on", c === b); c.setAttribute("aria-pressed", c === b); });
+      document.querySelectorAll(".masonry .shot").forEach((s) => (s.style.display = b.dataset.g === "all" || s.dataset.g === b.dataset.g ? "" : "none"));
+    });
+  });
+</script>
+</body>
+</html>
