@@ -8,9 +8,9 @@ const SITE = {
   name: "Arnav Tripathi",
   handle: "SMooKER_999",
   email: "arnavcoder2011@gmail.com",
-  // Free form backend: create a form at https://formspree.io, then paste its URL here,
-  // e.g. "https://formspree.io/f/abcdwxyz". Left empty, the form opens your email app instead.
-  formEndpoint: "",
+  // Contact form backend (FormSubmit, free, no account). Messages arrive at the email above.
+  // Left empty, the form opens the visitor's email app instead.
+  formEndpoint: "https://formsubmit.co/ajax/arnavcoder2011@gmail.com",
   links: {
     github: "https://github.com/ArnavTripathi999",
     linkedin: "https://www.linkedin.com/in/arnav-tripathi-0b8a48376",
@@ -457,20 +457,31 @@ function contactForm() {
     const data = Object.fromEntries(new FormData(form));
     if (!data.name || !data.email || !data.message) { status.className = "form-status err"; status.textContent = "Please fill in your name, email and message."; return; }
     const btn = form.querySelector("button[type=submit]");
-    if (!SITE.formEndpoint) {
-      const subject = encodeURIComponent(`[Portfolio] ${data.topic || "Hello"} from ${data.name}`);
+    const topics = { aod: "Asset on Demand", god: "Game on Demand" };
+    const topic = topics[data.topic] || data.topic || "General";
+    // Fallback: open the visitor's email app with the message filled in
+    const viaEmailApp = (note) => {
+      const subject = encodeURIComponent(`[Portfolio] ${topic} from ${data.name}`);
       const body = encodeURIComponent(`${data.message}\n\n— ${data.name} (${data.email})`);
       location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
-      status.className = "form-status ok"; status.textContent = "Opening your email app…";
-      return;
-    }
+      status.className = "form-status ok"; status.textContent = note;
+    };
+    if (!SITE.formEndpoint) return viaEmailApp("Opening your email app…");
     btn.disabled = true; status.className = "form-status"; status.textContent = "Sending…";
     try {
-      const r = await fetch(SITE.formEndpoint, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) });
-      if (!r.ok) throw new Error(r.status);
+      const r = await fetch(SITE.formEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: data.name, email: data.email, topic, message: data.message,
+          _subject: `[Portfolio] ${topic} from ${data.name}`, _replyto: data.email, _template: "table",
+        }),
+      });
+      const res = await r.json().catch(() => ({}));
+      if (!r.ok || String(res.success) !== "true") throw new Error(res.message || r.status);
       form.reset(); status.className = "form-status ok"; status.textContent = "Message received. I'll get back to you soon.";
     } catch {
-      status.className = "form-status err"; status.textContent = `Couldn't send right now. Email me at ${SITE.email}.`;
+      viaEmailApp(`Couldn't send from the site, so your email app is opening instead (or write to ${SITE.email}).`);
     } finally { btn.disabled = false; }
   });
 }
